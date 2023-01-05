@@ -14,7 +14,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class User {
 
-
     private int id;
 
     @NonNull
@@ -27,11 +26,17 @@ public class User {
     private String password;
 
     @JsonIgnore
-    private List<Message> messageWrites=new ArrayList<>();
+    private List<Message> messagesWrote =new ArrayList<>();
 
-    @JsonIgnore
-    private List<Message> messagesReceived=new ArrayList<>();
+   /* @JsonIgnore
+    private List<Message> messagesReceived=new ArrayList<>();*/
 
     private List<Chat> chats=new ArrayList<>();
+
+    public User(@NonNull String login, @NonNull String password) {
+        this.login = login;
+        this.password = password;
+    }
+
 
 }

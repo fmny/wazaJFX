@@ -11,75 +11,79 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #DCDCDC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.thales.wazajfx.controller.UserConnectController">
-    <top>
-        <Label prefHeight="91.0" prefWidth="592.0" text="WAZZZZZAAAAA" textFill="#1cbed9fa" BorderPane.alignment="CENTER">
-            <font>
-                <Font name="Rockwell Condensed" size="75.0" />
-            </font>
-        </Label>
-    </top>
+<?import javafx.scene.control.PasswordField?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="1047.0" style="-fx-background-color: #DCDCDC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.thales.wazajfx.controller.UserConnectController">
    <bottom>
-        <VBox alignment="TOP_CENTER" prefHeight="409.0" prefWidth="571.0" BorderPane.alignment="CENTER">
+        <VBox alignment="TOP_CENTER" prefHeight="399.0" prefWidth="1047.0" BorderPane.alignment="CENTER">
             <children>
-                <Pane prefHeight="284.0" prefWidth="900.0">
+                <Pane prefHeight="263.0" prefWidth="881.0">
                <children>
-                  <Pane layoutX="-5.0" layoutY="58.0" prefHeight="78.0" prefWidth="363.0">
-                     <children>
-                        <Label fx:id="lbError" alignment="CENTER" contentDisplay="CENTER" layoutX="-48.0" layoutY="39.0" prefHeight="21.0" prefWidth="454.0" text="Erreur de connexion, identifiants inconnus" textFill="#ef0606" visible="false">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <ImageView fitHeight="448.0" fitWidth="831.0" layoutX="-3.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+                  <Pane layoutX="-5.0" layoutY="58.0" prefHeight="78.0" prefWidth="576.0" />
+                  <ImageView depthTest="ENABLE" fitHeight="600.0" fitWidth="1060.0" layoutX="-3.0" layoutY="-191.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@sunset-1373171__340.jpg" />
                      </image>
                   </ImageView>
                </children></Pane>
-                <HBox prefHeight="63.0" prefWidth="376.0">
+                <HBox prefHeight="63.0" prefWidth="904.0">
                     <children>
-                        <Pane prefHeight="63.0" prefWidth="177.0">
+                        <Pane prefHeight="62.0" prefWidth="237.0">
                      <children>
-                              <Label layoutX="2.0" layoutY="1.0" text="Login" textFill="#c3114c">
+                              <Label layoutX="58.0" layoutY="2.0" text="Login" textFill="#c3114c">
                                   <font>
                                       <Font name="System Bold" size="20.0" />
                                   </font>
                               </Label>
                      </children></Pane>
-                        <TextField fx:id="txtUser" prefHeight="30.0" prefWidth="190.0">
-                     <font>
-                        <Font size="14.0" />
-                     </font></TextField>
-                    <Pane prefHeight="409.0" prefWidth="451.0">
+                    <Pane prefHeight="62.0" prefWidth="646.0">
                      <children>
-                            <Button fx:id="btnConnect" alignment="CENTER" contentDisplay="CENTER" layoutX="95.0" layoutY="6.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="100.0" style="-fx-background-color: #00FFFF;" text="Connexion">
+                            <Button fx:id="btnConnect" alignment="CENTER" contentDisplay="CENTER" layoutX="270.0" layoutY="6.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="123.0" style="-fx-background-color: #00FFFF;" text="Connexion">
                                 <font>
                                     <Font name="System Bold" size="15.0" />
                                 </font>
                             </Button>
+                              <TextField fx:id="txtLogin" layoutX="24.0" layoutY="-1.0" prefHeight="30.0" prefWidth="190.0">
+      
+                              <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
                      </children>
                   </Pane>
                     </children>
                 </HBox>
-                <HBox prefHeight="100.0" prefWidth="437.0">
+                <HBox prefHeight="76.0" prefWidth="1040.0">
                     <children>
+                  <Pane prefHeight="75.0" prefWidth="61.0" />
                         <Label text="Mot de passe" textFill="#2817b0">
                             <font>
                                 <Font name="System Bold" size="20.0" />
                             </font>
                         </Label>
-                        <Pane prefHeight="100.0" prefWidth="50.0" />
-                        <TextField fx:id="txtPassWord" prefHeight="30.0" prefWidth="187.0">
+                        <Pane prefHeight="75.0" prefWidth="51.0" />
+                        <PasswordField fx:id="txtPassWord" prefHeight="30.0" prefWidth="187.0">
                      <font>
                         <Font size="14.0" />
                      </font>
-                  </TextField>
+                  </PasswordField>
+                  <Label fx:id="lbError" alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="454.0" text="Erreur de connexion, identifiants inconnus" textFill="#ef0606" visible="false">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
                     </children>
                 </HBox>
             </children>
         </VBox>
    </bottom>
+   <top>
+        <Label prefHeight="91.0" prefWidth="592.0" text="WAZZZAAA" textFill="#1cbed9fa" BorderPane.alignment="CENTER">
+            <font>
+                <Font name="Rockwell Condensed" size="75.0" />
+            </font>
+        </Label>
+   </top>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
 </BorderPane>

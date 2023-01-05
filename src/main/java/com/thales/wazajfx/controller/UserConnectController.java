@@ -8,38 +8,38 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+//Test
+import java.security.MessageDigest;
+
 public class UserConnectController implements Initializable {
     @FXML
-    public TextField txtUser;
-
-    //@FXML
-    //public TextField txtPseudo;
-
+    public TextField txtLogin;
     @FXML
-    public TextField txtPassWord;
+    public PasswordField txtPassWord;
     @FXML
     public Button btnConnect;
     public Label lbError;
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-
         btnConnect.setOnMouseClicked(mouseEvent -> {
             GluonObservableObject<User> PotentialConnected =
-                    HttpRequests.tryLogin(new User("monPseudo",txtUser.getText(), txtPassWord.getText()));
-//modif FM ici (ajout de txtPseudo
-            PotentialConnected.setOnSucceeded(connectStateEvent -> {
-               // SchoolManagingApplication.setUser(PotentialConnected.get());
-                //SchoolManagingApplication.setScreen("accueil");
-                WazaApplication.setUser(PotentialConnected.get());
-                WazaApplication.setScreen("accueil");
+                    HttpRequests.tryLogin(new User("",txtLogin.getText(), txtPassWord.getText()));
 
+            PotentialConnected.setOnSucceeded(connectStateEvent -> {
+                WazaApplication.setConnectedUser(PotentialConnected.get());
+                WazaApplication.setScreen("accueil");
+                txtPassWord.clear();
+                txtLogin.clear();
+                lbError.setVisible(false);
             });
             PotentialConnected.setOnFailed(connectStateEvent -> {
                 lbError.setVisible(true);
