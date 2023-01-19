@@ -83,7 +83,6 @@ public class ChatController implements Initializable {
         });
 
 
-        //Code Erwan
         this.btnSendMessage.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             Message messageSend = new Message(txtMessageToSend.getText());
             messageSend.setAuthor(WazaApplication.getConnectedUser());
@@ -169,8 +168,9 @@ public class ChatController implements Initializable {
     });
     }
 
+    //On charge la liste de user dans le chat
     private void chargeList() {
-        GluonObservableList<User> gotList = HttpRequests.getAllUser(chat.getId());
+        GluonObservableList<User> gotList = HttpRequests.getAllUserByChat(chat.getId());
         gotList.setOnSucceeded(connectStateEvent -> {
             this.usersInChatObservable= FXCollections.observableArrayList(gotList);
             listUserChat.getItems().addAll(usersInChatObservable);

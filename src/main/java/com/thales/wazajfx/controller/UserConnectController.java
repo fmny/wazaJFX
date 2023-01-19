@@ -25,26 +25,33 @@ public class UserConnectController implements Initializable {
     @FXML
     public Button btnConnect;
     public Label lbError;
+    @FXML
+    public Button btnInscription;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         btnConnect.setOnMouseClicked(mouseEvent -> {
-            GluonObservableObject<User> PotentialConnected =
+            GluonObservableObject<User> potentialConnected =
                     HttpRequests.tryLogin(new User("",txtLogin.getText(), txtPassWord.getText()));
 
-            PotentialConnected.setOnSucceeded(connectStateEvent -> {
-                WazaApplication.setConnectedUser(PotentialConnected.get());
+            potentialConnected.setOnSucceeded(connectStateEvent -> {
+                WazaApplication.setConnectedUser(potentialConnected.get());
                 WazaApplication.setScreen("accueil");
                 txtPassWord.clear();
                 txtLogin.clear();
                 lbError.setVisible(false);
             });
-            PotentialConnected.setOnFailed(connectStateEvent -> {
-                lbError.setVisible(true);
+            potentialConnected.setOnFailed(connectStateEvent -> {
+                lbError.setVisible(true); //Affiche un message d erreur si le login et le mot de passe ne sont pas dans la base
             });
         });
+
+
+        btnInscription.setOnMouseClicked(mouseEvent -> {
+                WazaApplication.setScreen("userAdd");
+            });
 
 
     }

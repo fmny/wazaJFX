@@ -12,6 +12,9 @@ import java.util.List;
 public class HttpRequests {
     public static GluonObservableObject<User> tryLogin(User login) {
 
+        //Comprendre ce que fait ce boût de code
+        //Comprendre le fonctionnement de ces URL
+        //Bien voir Get et Post
         RestClient client = RestClient.create()
                 .method("POST")
                 .host("http://localhost:8080/waza/api/users/connect")
@@ -32,7 +35,7 @@ public class HttpRequests {
                 .readTimeout(1000)
                 .dataString(JsonUtils.getStringJson(myUser))
                 .contentType("application/json");
-
+        //retourne l'objet user de la méthode addUser de WazaBack
         return DataProvider.retrieveObject(client.createObjectDataReader(User.class));
     }
 
@@ -57,13 +60,25 @@ public class HttpRequests {
 
     }
 
-
-    public static GluonObservableList<User> getAllUser(int userId) {
+//deboguer avec Erwan + tard
+    public static GluonObservableList<User> getAllUserByChat(int chatId) {
         RestClient user = RestClient.create()
                 .method("GET")
-                .host("http://localhost:8080/waza/api/users/find/"+ userId)
+                .host("http://localhost:8080/waza/api/users/find/"+ chatId)
                 .connectTimeout(10000)
                 .readTimeout(1000);
+        return DataProvider.retrieveList(user.createListDataReader(User.class));
+    }
+
+    //Voir si ça marche (FM)
+
+    public static GluonObservableList<User> getAllUser() {
+        RestClient user = RestClient.create()
+                .method("GET")
+                .host("http://localhost:8080/waza/api/users/")
+                .connectTimeout(10000)
+                .readTimeout(1000);
+        System.out.println("getAllUserMethode");
         return DataProvider.retrieveList(user.createListDataReader(User.class));
     }
 
@@ -77,4 +92,6 @@ public class HttpRequests {
         return DataProvider.retrieveObject(chat.createObjectDataReader(Chat.class));
 
     }
+
+
 }
