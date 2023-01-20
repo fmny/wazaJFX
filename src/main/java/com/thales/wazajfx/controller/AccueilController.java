@@ -2,25 +2,16 @@ package com.thales.wazajfx.controller;
 
 import com.gluonhq.connect.GluonObservableList;
 
-import com.gluonhq.connect.GluonObservableObject;
+
 import com.thales.wazajfx.WazaApplication;
 import com.thales.wazajfx.model.Chat;
 import com.thales.wazajfx.utils.HttpRequests;
-
-//import com.thales.wazajfx.utils.NewSchoolSingleton;
 import com.thales.wazajfx.utils.NewChatSingleton;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
 import javafx.util.Callback;
-
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AccueilController implements Initializable  {

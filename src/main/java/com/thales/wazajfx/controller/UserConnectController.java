@@ -14,8 +14,6 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-//Test
-import java.security.MessageDigest;
 
 public class UserConnectController implements Initializable {
     @FXML

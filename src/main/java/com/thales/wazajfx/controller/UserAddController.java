@@ -2,11 +2,7 @@ package com.thales.wazajfx.controller;
 
 
 import com.gluonhq.connect.GluonObservableList;
-import com.gluonhq.connect.GluonObservableObject;
 import com.thales.wazajfx.utils.HttpRequests;
-import com.thales.wazajfx.utils.JsonUtils;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -17,12 +13,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import com.thales.wazajfx.model.*;
 import com.thales.wazajfx.*;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 

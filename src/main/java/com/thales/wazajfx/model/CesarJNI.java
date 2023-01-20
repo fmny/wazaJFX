@@ -5,8 +5,7 @@ package com.thales.wazajfx.model;
 
 public class CesarJNI {  // Save as HelloJNI.java
     static {
-        System.loadLibrary("Cesar"); // Load native library hello.dll (Windows) or libhello.so (Unixes)
-        //System.load("/home/francis/Documents/waza/waza1/src/main/java/com/thales/lib/libhello.so"); // Load native library hello.dll (Windows) or libhello.so (Unixes)
+        System.loadLibrary("CesarFront"); // Load native library CesarFront.dll (Windows) or libCesarFront.so (Unixes)
         //  at runtime
         // This library contains a native method called sayHello()
     }

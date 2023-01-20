@@ -4,36 +4,25 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.gluonhq.connect.GluonObservableList;
 import com.gluonhq.connect.GluonObservableObject;
-
 import com.thales.wazajfx.WazaApplication;
+import com.thales.wazajfx.model.CesarJNI;
 import com.thales.wazajfx.model.Chat;
 import com.thales.wazajfx.model.Message;
 import com.thales.wazajfx.model.User;
-import com.thales.wazajfx.utils.Util;
-import javafx.animation.KeyFrame;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
 import com.thales.wazajfx.utils.HttpRequests;
-import javafx.util.Duration;
-
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
-import java.util.List;
-import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 
@@ -84,7 +73,22 @@ public class ChatController implements Initializable {
 
 
         this.btnSendMessage.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
-            Message messageSend = new Message(txtMessageToSend.getText());
+            //Message messageSend = new Message(txtMessageToSend.getText());
+
+            //Encryptage du message avec cle=5
+            //Ensuite on devra associer à un user une clé pub et privée
+            int keyPubUser=5;
+            //Ici, il faudra modifier le césar "caractère + Key " a-> f , decryptage "caractère - key"
+            //Par un système de KeyPub et KeyPrivate (le clé sont identiques = 5)
+            String messageEncoded=new CesarJNI().encrypt(keyPubUser, txtMessageToSend.getText());
+
+            //Vérification du fonctionnement de libCesar.so (ok)
+            //(attention aux noms de méthodes et penser à ajouter la librairie
+            //dans les lib java du projet (project File,structure, module,+,library, java , libfic.so et gfic.dll
+            //Pour compatibilité avec windows
+
+            Message messageSend = new Message(messageEncoded);
+
             messageSend.setAuthor(WazaApplication.getConnectedUser());
             messageSend.setChat(chat);
 
